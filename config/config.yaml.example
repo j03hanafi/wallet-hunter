@@ -1,0 +1,9 @@
+rpc_url: ""
+receiver_address: ""
+gas_buffer_percent: 0
+
+gemini_api_key: ""
+gemini_model: ""
+
+target_chat_id: ""
+bot_token: ""
