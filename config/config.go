@@ -26,7 +26,7 @@ type Config struct {
 	GeminiAPIKey string `yaml:"gemini_api_key"`
 	GeminiModel  string `yaml:"gemini_model"`
 
-	TargetChatID string `yaml:"target_chat_id"`
+	TargetChatID int64  `yaml:"target_chat_id"`
 	BotToken     string `yaml:"bot_token"`
 }
 
@@ -102,7 +102,7 @@ func loadConfig(path string) (*Config, error) {
 	if cfg.BotToken == "" {
 		return nil, fmt.Errorf("missing required config: bot_token")
 	}
-	if cfg.TargetChatID == "" {
+	if cfg.TargetChatID == 0 {
 		return nil, fmt.Errorf("missing required config: target_chat_id")
 	}
 

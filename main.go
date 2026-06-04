@@ -3,6 +3,8 @@ package main
 import (
 	"context"
 	"wallet-hunter/config"
+	"wallet-hunter/handler"
+	"wallet-hunter/service"
 )
 
 func main() {
@@ -13,4 +15,22 @@ func main() {
 		panic(err)
 	}
 
+	ethClient, err := service.NewETH(ctx, cfg)
+	if err != nil {
+		panic(err)
+	}
+	defer ethClient.Client.Close()
+
+	telegramClient, err := service.NewTelegram(cfg)
+	if err != nil {
+		panic(err)
+	}
+
+	geminiClient, err := service.NewGemini(ctx, cfg)
+	if err != nil {
+		panic(err)
+	}
+
+	hunter := handler.NewHunter(cfg, ethClient, telegramClient, geminiClient)
+	hunter.Start(ctx)
 }

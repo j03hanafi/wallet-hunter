@@ -5,5 +5,5 @@ gas_buffer_percent: 0
 gemini_api_key: ""
 gemini_model: ""
 
-target_chat_id: ""
+target_chat_id: 0
 bot_token: ""
