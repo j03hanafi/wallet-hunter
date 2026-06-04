@@ -5,6 +5,7 @@ import (
 	"wallet-hunter/config"
 	"wallet-hunter/handler"
 	"wallet-hunter/service"
+	"wallet-hunter/util"
 )
 
 func main() {
@@ -14,6 +15,12 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
+	f, err := util.InitLogger()
+	if err != nil {
+		panic(err)
+	}
+	defer f.Close()
 
 	ethClient, err := service.NewETH(ctx, cfg)
 	if err != nil {

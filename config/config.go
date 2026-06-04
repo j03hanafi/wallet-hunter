@@ -36,8 +36,6 @@ func NewConfig(path string) (*Config, error) {
 		return nil, err
 	}
 
-	util.InitLogger()
-
 	return cfg, nil
 }
 
