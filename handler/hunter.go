@@ -60,6 +60,7 @@ func (h *Hunter) Start(ctx context.Context) {
 		if err != nil {
 			slog.Error("failed to process fund", "error", err)
 			_ = h.TelegramClient.SendHTML("Failed to process fund\n" + err.Error())
+			continue
 		}
 
 		h.sendStatus(tx, time.Since(now))

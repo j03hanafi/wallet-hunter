@@ -19,6 +19,7 @@ Output ONLY the private key, exactly as it appears, on a single line.
 
 Rules:
 - No labels, no explanation, no markdown, no code fences, no quotes.
+- If key is present as multi-line, merge into a single line.
 - Do not add or remove characters. Do not "correct" the key.
 - If no 64-hex-character key is present, output exactly: NO_KEY_FOUND
 `
